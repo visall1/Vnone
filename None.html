@@ -1,152 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #ffe4e1;
-    }
-
-    .valentine-container {
-      text-align: center;
-    }
-
-    .valentine-image,
-    .love-image {
-      width: 200px;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    .question {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .yes-button {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .yes-button:hover {
-      transform: scale(1.1);
-    }
-
-    .no-button {
-      background-color: #f5f5f5;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .no-button:hover {
-      background-color: #ffe4b5;
-    }
-
-    .love-message {
-      text-align: center;
-    }
-
-    .love-text {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ff1493;
-      margin-top: 20px;
-    }
-    .footer {
-      margin-top: 100px;
-      font-size: 14px;
-      color: #555;
-      padding: 10px;
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .footer {
-        font-size: 12px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Puzzle</title>
+    <link rel="stylesheet" href="puzzle.css">
+    <script defer src="puzzle.js"></script>
 </head>
 <body>
-  <div class="valentine-container">
-    <div class="pre-valentine" id="preValentine">
-      <img
-        src="https://i.pinimg.com/originals/42/53/42/4253426e968c57f598bfa48eb3742d44.gif"
-        alt="Bear with heart"
-        class="valentine-image"
-      />
-      <div class="question">Would you be my Valentine?</div>
-      <div class="button-container">
-        <button class="yes-button" id="yesButton">Yes</button>
-        <button class="no-button" id="noButton">No</button>
-      </div>
-    </div>
-
-    <div class="love-message" id="loveMessage" style="display: none;">
-      <img
-        alt="Bears kissing"
-        src="https://media1.tenor.com/images/53c66d170bd4393786ccca514d9e2998/tenor.gif?itemid=19462957"
-        class="love-image"
-      />
-      <div class="love-text">Y'eeee I love you..</div>
-    </div>
-
-    <div class="footer">
-      Made by V-sal
-    </div>
+    <h1>Dinosour puzzle</h1>
+    <p id="timer">Time Elapsed: 00:00</p>
+    <div id="button-container">
+      <button id="btnShuffle">Shuffle</button>
+      <button id="btnPause">Pause</button>
   </div>
-
-  <script>
-    const phrases = [
-      "No",
-      "Are you sure?",
-      "Pookie please",
-      "Don't do this to me",
-      "I'm gonna cry....",
-      "You're breaking my heart",
-    ];
-
-    const yesButton = document.getElementById('yesButton');
-    const noButton = document.getElementById('noButton');
-    const preValentine = document.getElementById('preValentine');
-    const loveMessage = document.getElementById('loveMessage');
-
-    let noCount = 0;
-
-    yesButton.addEventListener('click', () => {
-      preValentine.style.display = 'none';
-      loveMessage.style.display = 'block';
-    });
-
-    noButton.addEventListener('click', () => {
-      noCount++;
-      const noButtonText = phrases[Math.min(noCount, phrases.length - 1)];
-      noButton.textContent = noButtonText;
-      yesButton.style.fontSize = `${noCount * 20 + 10}px`;
-    });
-  </script>
+    <div id="puzzle-board"></div>
+    <p id="moves">Moves Made: 0</p>
 </body>
 </html>

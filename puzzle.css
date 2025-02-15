@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #0c67ae;
+    background-color: blanchedalmond;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+h1 {
+    margin-bottom: 10px;  /* Reduces space below the heading */
+}
+
+/* Puzzle Container */
+#puzzle-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 400px; /* Limits background width */
+    width: 100%;
+    /*margin: auto;*/
+    margin-top: 10px;
+}
+
+/* Puzzle Board */
+#puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 5px;
+    justify-content: center;    
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiles */
+.tile {
+    width: 110px;
+    height: 110px;
+    border-radius: 8px;
+    background-size: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.empty {
+    background: #d1d1d1;
+    box-shadow: none;
+}
+#button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Space between buttons */
+    margin-top: 15px;
+    flex-wrap: wrap; /* Ensures proper layout on smaller screens */
+}
+
+/* Buttons */
+button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+#btnShuffle {
+    background-color: #0c67ae;
+    color: white;
+}
+
+#btnPause {
+    background-color: #ff9800;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    #puzzle-container {
+        max-width: 90%; /* Keeps background width smaller */
+    }
+
+    #puzzle-board {
+        grid-template-columns: repeat(3, 85px);
+        grid-template-rows: repeat(3, 85px);
+        padding: 10px;
+    }
+
+    .tile {
+        width: 85px;
+        height: 85px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
