@@ -13,6 +13,13 @@ class SlidePuzzle {
         this.movesDisplay = document.getElementById("moves");
         this.timerDisplay = document.getElementById("timer");
 
+        // Background music and tile swap sound
+        this.bgMusic = document.getElementById("bgMusic");
+        this.swapSound = document.getElementById("swapSound");
+
+        // Start playing the background music
+        this.bgMusic.play();
+
         document.getElementById("btnShuffle").addEventListener("click", () => this.shuffle());
         document.getElementById("btnPause").addEventListener("click", () => this.pauseOrResume());
 
@@ -68,6 +75,9 @@ class SlidePuzzle {
 
             this.moves++;
             this.movesDisplay.innerText = `Moves Made: ${this.moves}`;
+
+            // Play tile swap sound
+            this.swapSound.play();
 
             if (this.moves === 1) this.startTimer();
             this.renderBoard();
@@ -136,6 +146,10 @@ class SlidePuzzle {
             this.startTime = Date.now() - this.getElapsedTime() * 1000;
             this.timer = setInterval(() => this.updateTimer(), 1000);
         }
+    }
+    stopMusic() {
+        this.bgMusic.pause();
+        this.bgMusic.currentTime = 0; // Reset to the start of the song
     }
 }
 

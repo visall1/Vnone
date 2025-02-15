@@ -13,8 +13,22 @@
     <div id="button-container">
       <button id="btnShuffle">Shuffle</button>
       <button id="btnPause">Pause</button>
+      <button id="btnStopMusic">Stop Music</button> 
   </div>
     <div id="puzzle-board"></div>
     <p id="moves">Moves Made: 0</p>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="pop.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Tile Swap Sound -->
+    <audio id="swapSound">
+        <source src="swap_sound.mp4" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
 </body>
 </html>
